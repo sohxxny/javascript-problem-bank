@@ -9,7 +9,12 @@
  * @returns {number}
  */
 function countProperties(obj) {
-  // TODO
+    let count = 0;
+    for (let _ in obj) {
+        count++;
+        console.log(count);
+    }
+    return count;
 }
 
 export { countProperties };
