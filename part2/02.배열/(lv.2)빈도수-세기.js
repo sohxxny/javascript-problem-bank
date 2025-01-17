@@ -10,8 +10,13 @@
  * @returns {object} - key: 원소 값, value: 등장 횟수
  */
 
-// TODO: 함수를 작성하세요.
-function getFrequency(arr) {}
+function getFrequency(arr) {
+    return arr.reduce((result, item) => {
+        const value = result.get(item);
+        result.set(item, value ? value + 1 : 0);
+        return result;
+    }, new Map());
+}
 
 // export 를 수정하지 마세요.
 export { getFrequency };
