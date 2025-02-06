@@ -19,7 +19,14 @@ const posts = [
   { id: 5, title: "Example" },
 ];
 
-function getPage(pageNumber, perPage) {}
+function getPage(pageNumber, perPage) {
+  if (pageNumber < 1 || perPage < 1) {
+    return [];
+  }
+  const firstPage = perPage * (pageNumber - 1);
+  const lastPage = perPage * pageNumber;
+  return posts.slice(firstPage, lastPage);
+}
 
 // export 를 수정하지 마세요.
 export { getPage, posts };

@@ -10,7 +10,16 @@
  * @returns {any[][]}
  */
 
-function chunkArray(arr, size) {}
+function chunkArray(arr, size) {
+  return arr.reduce((result, item, index) => {
+    if (index % size === 0) {
+      result.push([item]);
+    } else {
+      result.at(-1).push(item);
+    }
+    return result;
+  }, []);
+}
 
 // export 를 수정하지 마세요.
 export { chunkArray };

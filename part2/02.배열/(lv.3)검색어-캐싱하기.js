@@ -16,12 +16,18 @@
 let topKeywordsCache = [];
 
 function updateTopKeywords(keywords) {
-  // TODO
+    const freq = keywords.reduce((result, item) => {
+        const value = result[item];
+        result[item] = value === undefined ? 1 : value + 1;
+        return result;
+    }, {});
+    topKeywordsCache = Object.entries(freq)
+        .sort((a, b) => b - a)
+        .map((a) => a[0]);
 }
 
 function getTopKeywords() {
-  // TODO
-  return [];
+    return topKeywordsCache.slice(0, 10);
 }
 
 // export를 수정하지 마세요.

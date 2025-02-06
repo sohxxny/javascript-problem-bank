@@ -11,11 +11,12 @@
  */
 
 function getFrequency(arr) {
-    return arr.reduce((result, item) => {
-        const value = result.get(item);
-        result.set(item, value ? value + 1 : 0);
-        return result;
-    }, new Map());
+  const countMap = new Map();
+  arr.forEach((item) => {
+    const count = countMap.get(item) || 0;
+    countMap.set(item, count + 1);
+  });
+  return { ...Object.fromEntries(countMap) };
 }
 
 // export 를 수정하지 마세요.
